@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@supabase/server": "^1.9.1",
     "@supabase/supabase-js": "^2.117.3",
     "dotenv": "^18.0.7",
     "lucide-react": "^1.55.0",

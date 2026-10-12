@@ -25,7 +25,7 @@ export async function handleTokenRequest(req, res) {
       return res.status(500).json({ error: 'Supabase URL belum dikonfigurasi pada server.' })
     }
 
-    const keyToUse = supabaseServiceKey || process.env.VITE_SUPABASE_ANON_KEY
+    const keyToUse = supabaseServiceKey || process.env.VITE_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_PUBLISHABLE_KEY
     if (!keyToUse) {
       return res.status(500).json({ error: 'Supabase Key belum dikonfigurasi pada server.' })
     }

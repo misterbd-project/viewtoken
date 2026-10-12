@@ -13,6 +13,8 @@ function devApiPlugin() {
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         if (req.url && req.url.startsWith('/api/token')) {
+          // Muat ulang file .env secara dinamis agar perubahan kunci langsung terbaca tanpa restart
+          dotenv.config({ override: true })
           const { handleTokenRequest } = await import('./api/token.js')
           
           if (req.method === 'POST') {
