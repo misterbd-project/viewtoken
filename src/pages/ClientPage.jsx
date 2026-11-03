@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Maximize2, Minimize2 } from 'lucide-react'
 import TokenDisplay from '../components/TokenDisplay'
+import RealtimeClock from '../components/RealtimeClock'
 import { useRealtimeToken } from '../hooks/useRealtimeToken'
 
 export default function ClientPage() {
@@ -47,16 +48,23 @@ export default function ClientPage() {
       />
 
       {/* Top Bar: Navigasi & Kontrol Layar */}
-      <header className="relative z-10 w-full px-6 py-5 sm:px-10 flex items-center justify-between border-b border-slate-900 bg-black/60 backdrop-blur-md">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:border-slate-700 hover:text-white transition"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Kembali</span>
-        </Link>
-
+      <header className="relative z-10 w-full px-4 sm:px-8 py-3.5 sm:py-4 flex flex-wrap md:flex-nowrap items-center justify-between gap-3 border-b border-slate-900 bg-black/60 backdrop-blur-md">
         <div className="flex items-center gap-3">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900/60 px-3.5 py-2 text-xs font-semibold text-slate-300 hover:border-slate-700 hover:text-white transition"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>Kembali</span>
+          </Link>
+        </div>
+
+        {/* Jam Realtime dengan Animasi di Layar Monitor Client */}
+        <div className="order-3 md:order-2 w-full md:w-auto flex justify-center">
+          <RealtimeClock />
+        </div>
+
+        <div className="order-2 md:order-3 flex items-center gap-3">
           <div className="text-right hidden sm:block">
             <span className="block text-xs font-bold text-white tracking-wider">
               TOKEN DISPLAY
