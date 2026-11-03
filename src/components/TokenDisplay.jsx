@@ -1,6 +1,7 @@
 import React from 'react'
 import { formatIndonesianDateTime } from '../lib/supabase'
 import { Wifi, WifiOff, Clock, RefreshCw } from 'lucide-react'
+import RealtimeClock from './RealtimeClock'
 
 export default function TokenDisplay({
   token,
@@ -50,6 +51,11 @@ export default function TokenDisplay({
 
   return (
     <div className="flex w-full flex-col items-center justify-center text-center">
+      {/* Jam Realtime Besar dengan Animasi (Ditempatkan di atas Status Koneksi) */}
+      <div className="mb-6 sm:mb-8">
+        <RealtimeClock />
+      </div>
+
       {/* Status Koneksi */}
       <div className="mb-6 sm:mb-8 flex flex-wrap items-center justify-center gap-3">
         {getStatusBadge()}
